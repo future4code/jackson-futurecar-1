@@ -28,6 +28,55 @@ const Logo = styled.img `
 `
 
 export class PaginaCadastro extends React.Component {
+    state = {
+        inputName: '',
+        inputDescription: '',
+        inputPrice: '',        
+        inputPayment: '',
+        inputShipping: ''
+    }
+
+    //INPUTS CONTROLADOS
+
+    onChangeName = (e) => {
+        this.setState({inputName: e.target.value})        
+    }
+
+    onChangeDescription = (e) => {
+        this.setState({inputDescription: e.target.value})        
+    }
+
+    onChangePrice = (e) => {
+        this.setState({inputPrice: e.target.value})        
+    }
+
+    onChangePayment = (e) => {
+        this.setState({inputPayment: e.target.value})        
+    }
+
+    onChangeShipping = (e) => {
+        this.setState({inputShipping: e.target.value})        
+    }
+
+   ButtonCreateCar = () => {
+       const body = {
+           name: this.state.inputName,
+           description: this.state.inputDescription,
+           price: this.state.inputPrice,
+           paymentMethod: this.state.inputPayment,
+           shipping: this.state.inputShipping
+       }
+
+       axios.post('https://us-central1-labenu-apis.cloudfunctions.net/futureCarOne/cars', body 
+       ).then(res => {
+           alert("Veículo cadastrado com sucesso")
+       }).catch(err => {
+           console.log('nao foi')
+       })
+
+       this.setState({inputName: '', inputDescription: '', inputPrice: '', inputPayment: '', inputShipping: ''})
+   }
+
     render() {
         return (
             <ThemeProvider theme={theme}>
@@ -47,6 +96,8 @@ export class PaginaCadastro extends React.Component {
                             <FormControl margin="dense" color="primary" variant='filled'>                           
                                 
                                 <TextField
+                                    value={this.state.inputName}
+                                    onChange={this.onChangeName}
                                     margin="normal"
                                     size="small" 
                                     label="Título" 
@@ -54,19 +105,11 @@ export class PaginaCadastro extends React.Component {
                                     color='primary' 
                                     variant='outlined' 
                                     autoFocus={true}
-                                />                         
-
-                                <TextField  
-                                    margin="normal"
-                                    size="small"
-                                    type="link" 
-                                    label="Endereço da imagem" 
-                                    name="imagem" 
-                                    color='primary' 
-                                    variant='outlined' 
-                                />
+                                />                       
 
                                 <TextField
+                                    value={this.state.inputDescription}
+                                    onChange={this.onChangeDescription}
                                     margin="normal"  
                                     size="medium" 
                                     label="Descrição do veículo" 
@@ -78,6 +121,8 @@ export class PaginaCadastro extends React.Component {
                                 <Grid container spacing={4}>
                                     <Grid item xs={4}>
                                         <TextField
+                                            value={this.state.inputPrice}
+                                            onChange={this.onChangePrice}
                                             margin="normal"  
                                             size="medium" 
                                             label="Valor"
@@ -89,17 +134,21 @@ export class PaginaCadastro extends React.Component {
                                     </Grid> 
                                     <Grid item xs={4}>
                                         <TextField
+                                            value={this.state.inputShipping}
+                                            onChange={this.onChangeShipping}
                                             margin="normal"  
-                                            id="date"
-                                            label="Prazo de entrega"
-                                            type="date"
-                                            defaultValue="2000-01-01"                                             
-                                            color='primary'                                            
+                                            size="medium" 
+                                            label="Remessa"
+                                            type="number" 
+                                            name="Remessa" 
+                                            color='primary' 
                                             variant='outlined'
                                         />    
                                     </Grid>   
                                     <Grid item xs={4}>
                                         <TextField
+                                            value={this.state.inputPayment}
+                                            onChange={this.onChangePayment}
                                             margin="normal"  
                                             size="medium" 
                                             label="Método de pagamento" 
@@ -110,7 +159,7 @@ export class PaginaCadastro extends React.Component {
                                     </Grid>                 
                                 </Grid>
 
-                                    <Button variant="contained" color="primary">Cadastrar veículo</Button>
+                                    <Button onClick={this.ButtonCreateCar} variant="contained" color="primary">Cadastrar veículo</Button>
                             </FormControl>                    
                         </Grid>               
                     </Grid>
