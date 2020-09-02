@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import CardDetails from './ProductCardDetails/ProductCardDetails'
 
 export class AppContainer extends Component {
   render() {
     return (
       <div>
-        <p>Pronto para começar!</p>
+        <CardDetails/>
       </div>
     )
   }
