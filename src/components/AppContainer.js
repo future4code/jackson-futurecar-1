@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
+import PaginaCadastro from '../components/PaginaCadastro'
 
 export class AppContainer extends Component {
   render() {
     return (
       <div>
-        <p>Pronto para começar!</p>
+
+        
+        
+        <PaginaCadastro />
       </div>
     )
   }
