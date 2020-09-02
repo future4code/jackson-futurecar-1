@@ -32,7 +32,7 @@ export class PaginaCadastro extends React.Component {
         return (
             <ThemeProvider theme={theme}>
                 <Container maxWidth="lg">
-                    <Grid container spacing={6}>
+                    <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <Logo src={Logo1}/>
                         </Grid>                
@@ -42,7 +42,7 @@ export class PaginaCadastro extends React.Component {
                                 <Typography variant="body1">Na FutureCar você anúncia o seu veículo e garante uma boa venda, com segurança tanto para quem vende, quanto para quem compra.</Typography>
                             
                         </Grid>
-                        <Grid container xs={6} spacing={12}> 
+                        <Grid item xs={6} > 
                                                               
                             <FormControl margin="dense" color="primary" variant='filled'>                           
                                 
