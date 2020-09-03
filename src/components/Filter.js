@@ -12,6 +12,21 @@ import Checkbox from '@material-ui/core/Checkbox';
 import TextField from '@material-ui/core/TextField';
 import InputLabel from '@material-ui/core/InputLabel';
 import Button from '@material-ui/core/Button';
+import { createMuiTheme, MuiThemeProvider } from "@material-ui/core";
+import { makeStyles } from '@material-ui/core/styles';
+
+
+const theme = createMuiTheme({
+    palette: {
+      primary: {
+        main: "#ff5c5c"
+      },
+      secondary: {
+        main: "#ododod"
+      }
+    }
+  });
+    
 
 const FilterContainer = styled.div`
     display: flex;
@@ -20,7 +35,6 @@ const FilterContainer = styled.div`
     border: solid 5px black;
     padding: 20px;
 `;
-
 
 const mock = [
     'Opção',
@@ -34,147 +48,67 @@ const mock = [
     'Opção',
     'Opção',
   ];
+  
+  
+export default class Filter extends React.Component {
+    state = {
 
-
-export class Filter extends React.Component {
+    }
+   
     render () {
+        
         return (
             
-            
+        <MuiThemeProvider theme={theme}>
             <FilterContainer>
-            <Button variant="contained">Limpar Filtros</Button>
+            <Button variant="contained" color="secondary"><strong>Limpar Filtros</strong></Button>
             <br />
                 <div>
-                <FormControl component="fieldset">
-                    <FormLabel component="legend">Ordenar</FormLabel>
-                    <RadioGroup aria-label="gender">
-                        <FormControlLabel value="Menor Preço" control={<Radio />} label="Menor Preço" />
-                        <FormControlLabel value="Maior Preço" control={<Radio />} label="Maior Preço" />
-                        <FormControlLabel value="Mais Novos" control={<Radio />} label="Mais Novos" />
-                        <FormControlLabel value="Menor Quilometragem" control={<Radio />} label="Menor Quilometragem" />
-                        <FormControlLabel value="Mais Recentes na FutureCars" control={<Radio />} label="Mais Recentes" />
-                    </RadioGroup>
-                </FormControl>
+                    <h2>Ordenar:</h2>
+                        <FormControl component="fieldset">                    
+                                <FormLabel component="legend">Preço</FormLabel>
+                                    <RadioGroup aria-label="filter">
+                                        <FormControlLabel value="Menor Preço" control={<Radio />} label="Menor Preço" />
+                                        <FormControlLabel value="Maior Preço" control={<Radio />} label="Maior Preço" />                  
+                                    </RadioGroup>
+
+                        </FormControl>
+                <br />
+                        <FormControl component="fieldset">                    
+                                <FormLabel component="legend">Prazo de entrega</FormLabel>
+                                    <RadioGroup aria-label="filter">
+                                        <FormControlLabel value="Menor Prazo" control={<Radio />} label="Menor Preço" />
+                                        <FormControlLabel value="Maior Prazo" control={<Radio />} label="Maior Preço" />                  
+                                    </RadioGroup>
+                        </FormControl>
+                <br />
+                        <FormControl component="fieldset">                
+                            <FormControl>
+                                <TextField id="Modelo do carro" label="Modelo do carro" />
+                            </FormControl>
+                        </FormControl>
+                <br />
                 </div>
-                <h3>Marca e Modelo</h3>
-                {/* Necessário arrumar a width deste componente */}
-                <div>
-                <FormControl component="fieldset">
-                <InputLabel>Selecione uma marca</InputLabel>
-                    <Select>
-                        {mock.map((opcoes) =>
-                        <MenuItem>
-                        {opcoes}
-                        </MenuItem>
-                        )}
-                    </Select>
-                    <br />
-                    <InputLabel>Selecione o modelo</InputLabel>
-                    <Select>
-                        {/* esta lista deve ser renderizada em função do item anterior */}
-                        {mock.map((opcoes) =>
-                        <MenuItem>
-                        {opcoes}
-                        </MenuItem>
-                        )}
-                    </Select>
-                </FormControl>
-     
+                <br />
                 
+                <div>
+                    <h2>Filtrar:</h2>
+                        <h5>Preço:</h5>                        
+                            <FormControl>
+                                <TextField id="De" label="De" /><TextField id="Até" label="Até" />
+                            </FormControl>
+                        <br />
+                        <h5>Descrição:</h5>
+                            <FormControl>
+                                <TextField id="Descrição" label="Descrição do carro" />
+                            </FormControl>                
                 </div>
-                <h3>Quilometragem</h3>
-                <FormControl>
-                <TextField id="De" label="De" /><TextField id="Até" label="Até" />
-                </FormControl>
-                <h3>Estado</h3>
-                <FormGroup>
-                <FormControlLabel
-                    control={<Checkbox color="primary" />}
-                    label="SC"
-                    labelPlacement="end"
-                    />
-                <FormControlLabel
-                    control={<Checkbox color="primary" />}
-                    label="PR"
-                    labelPlacement="end"
-                    />
-                </FormGroup>
-                <h3>Preço</h3>
-                <FormControl>
-                <TextField id="De" label="De" /><TextField id="Até" label="Até" />
-                </FormControl>
-                <h3>Câmbio</h3>
-                <FormGroup>
-                <FormControlLabel
-                    control={<Checkbox color="primary" />}
-                    label="Automático"
-                    labelPlacement="end"
-                    />
-                <FormControlLabel
-                    control={<Checkbox color="primary" />}
-                    label="Manual"
-                    labelPlacement="end"
-                    />
-                <FormControlLabel
-                    control={<Checkbox color="primary" />}
-                    label="Semi"
-                    labelPlacement="end"
-                    />
-                <FormControlLabel
-                    control={<Checkbox color="primary" />}
-                    label="Cvt"
-                    labelPlacement="end"
-                    />
-                <FormControlLabel
-                    control={<Checkbox color="primary" />}
-                    label="Sequencial"
-                    labelPlacement="end"
-                    />
-                </FormGroup>
-                <h3>Ano</h3>
-                <FormControl>
-                <TextField id="De" label="De" /><TextField id="Até" label="Até" />
-                </FormControl>
-                <h3>Cor</h3>
-                <FormGroup>
-                <FormControlLabel
-                    control={<Checkbox color="primary" />}
-                    label="Branco"
-                    labelPlacement="end"
-                    />
-                <FormControlLabel
-                    control={<Checkbox color="primary" />}
-                    label="Prata"
-                    labelPlacement="end"
-                    />
-                <FormControlLabel
-                    control={<Checkbox color="primary" />}
-                    label="Preto"
-                    labelPlacement="end"
-                    />
-                <FormControlLabel
-                    control={<Checkbox color="primary" />}
-                    label="Cinza"
-                    labelPlacement="end"
-                    />
-                <FormControlLabel
-                    control={<Checkbox color="primary" />}
-                    label="Vermelho"
-                    labelPlacement="end"
-                    />
-                <FormControlLabel
-                    control={<Checkbox color="primary" />}
-                    label="Azul"
-                    labelPlacement="end"
-                    />
-                <FormControlLabel
-                    control={<Checkbox color="primary" />}
-                    label="Verde"
-                    labelPlacement="end"
-                    />
-                </FormGroup>
-                <Button variant="contained">Filtrar</Button>
+                <br />                            
+                <Button variant="contained" color="primary">Filtrar</Button>
             </FilterContainer>
+            
+        </MuiThemeProvider>
+            
         );
     }
 }

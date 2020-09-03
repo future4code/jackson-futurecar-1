@@ -8,7 +8,7 @@ export class AppContainer extends Component {
     return (
       <div>
         <RaphaelLayoutTeste></RaphaelLayoutTeste>
-        <PaginaCadastro />
+
       </div>
     )
   }
