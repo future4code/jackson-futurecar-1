@@ -30,10 +30,10 @@ class InitialPage extends React.Component {
         </div>
         <div>
           <BotaoContainer>
-          <Button variant='contained' color='primary'>
+          <Button onClick={this.props.pageCreateCar} variant='contained' color='primary'>
             SOU COMPRADOR
           </Button>
-          <Button variant='contained' color='primary'>
+          <Button onClick={this.props.pageProduct}variant='contained' color='primary'>
             SOU VENDEDOR
           </Button>
           </BotaoContainer>
