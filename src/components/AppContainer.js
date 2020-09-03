@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import CardDetails from './ProductCardDetails/ProductCardDetails'
+import MediaCard from '../components/card/card'
 
 export class AppContainer extends Component {
   render() {
     return (
       <div>
-        <CardDetails/>
+        <MediaCard/>
       </div>
     )
   }
