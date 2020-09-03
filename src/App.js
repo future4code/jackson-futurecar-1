@@ -8,8 +8,8 @@ function App() {
 	return (
 		<div>
         <Filter />
-		<AppContainer/>
-		<Footer/>
+		    <AppContainer/>
+		    <Footer/>
 		</div>
 	)
 }
