@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
-import { PaginaProdutos } from './PaginaProdutos'
-import { HeaderFuture } from './HeaderFuture'
-import PaginaCadastro from './PaginaCadastro'
+import { PaginaProdutos } from './PaginaProduto/PaginaProdutos'
+import { HeaderFuture } from './Header/HeaderFuture'
+import PaginaCadastro from './PaginaCadastro/PaginaCadastro'
 
 
 const Box = styled.div`

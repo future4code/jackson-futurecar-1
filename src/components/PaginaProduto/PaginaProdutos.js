@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
-import Filter from './Filter'
+import Filter from '../Filter/Filter'
+import Button from '@material-ui/core/Button';
 
 const Main = styled.main`
     /*background-color: rgb(230,230,230);*/
@@ -62,7 +63,9 @@ export class PaginaProdutos extends React.Component{
     render(){
         return(
             <Fragment>
+                <Button onClick={this.props.voltar} variant="contained" color="primary">Voltar</Button>
                 <Main>
+                    
                     <FiltroBox>
                         <Filter />
                     </FiltroBox>

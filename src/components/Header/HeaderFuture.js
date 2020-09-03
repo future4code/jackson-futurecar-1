@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Logo1 from '../components/img-cadastro/logo1.png' 
+import Logo1 from '../PaginaCadastro/img-cadastro/logo1.png' 
 
 
 const Header = styled.header`
