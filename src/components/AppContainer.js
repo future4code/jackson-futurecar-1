@@ -3,6 +3,8 @@ import MediaCard from '../components/card/card'
 import ProductCard from './ProductCard/ProductCard'
 import { PaginaProdutos } from './PaginaProduto/PaginaProdutos'
 import { RaphaelLayoutTeste } from './RaphaelLayoutTeste'
+import PaginaCadastro from '../components/PaginaCadastro'
+import InitialPage from './InitialPage/InitialPage'
 import PaginaCadastro from './PaginaCadastro/PaginaCadastro'
 import { Filter } from './Filter/Filter'
 import InitialPage from './InitialPage/InitialPage'
@@ -38,6 +40,12 @@ export class AppContainer extends Component {
 
   render() {
     return (
+      <div>
+        <InitialPage/>
+        <ProductCard/>
+        <RaphaelLayoutTeste></RaphaelLayoutTeste>
+        <PaginaCadastro />
+      </div>
       this.mudarTela()
     )
   }
