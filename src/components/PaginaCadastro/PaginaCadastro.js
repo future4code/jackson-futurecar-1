@@ -33,7 +33,8 @@ export class PaginaCadastro extends React.Component {
         inputDescription: '',
         inputPrice: '',        
         inputPayment: '',
-        inputShipping: ''
+        inputShipping: '',
+        url: ''
     }
 
     //INPUTS CONTROLADOS
@@ -58,13 +59,18 @@ export class PaginaCadastro extends React.Component {
         this.setState({inputShipping: e.target.value})        
     }
 
+    onChangeUrl = (e) => {
+        this.setState({url: e.target.value})
+    }
+
    ButtonCreateCar = () => {
        const body = {
            name: this.state.inputName,
            description: this.state.inputDescription,
            price: this.state.inputPrice,
            paymentMethod: this.state.inputPayment,
-           shipping: this.state.inputShipping
+           shipping: this.state.inputShipping,
+           url: this.state.url
        }
 
        axios.post('https://us-central1-labenu-apis.cloudfunctions.net/futureCarOne/cars', body 
@@ -74,7 +80,7 @@ export class PaginaCadastro extends React.Component {
            console.log('nao foi')
        })
 
-       this.setState({inputName: '', inputDescription: '', inputPrice: '', inputPayment: '', inputShipping: ''})
+       this.setState({inputName: '', inputDescription: '', inputPrice: '', inputPayment: '', inputShipping: '', url: ''})
    }
 
     render() {
@@ -114,6 +120,17 @@ export class PaginaCadastro extends React.Component {
                                     margin="normal"  
                                     size="medium" 
                                     label="Descrição do veículo" 
+                                    name="titulo" 
+                                    color='primary' 
+                                    variant='outlined' 
+                                />
+
+                                <TextField
+                                    value={this.state.url}
+                                    onChange={this.onChangeUrl}
+                                    margin="normal"  
+                                    size="small" 
+                                    label="Url da imagem" 
                                     name="titulo" 
                                     color='primary' 
                                     variant='outlined' 
