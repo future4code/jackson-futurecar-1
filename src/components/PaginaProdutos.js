@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
-// import axios from 'axios'
+import axios from 'axios'
+import Filter from './Filter'
 
 const Main = styled.main`
     /*background-color: rgb(230,230,230);*/
@@ -63,30 +64,7 @@ export class PaginaProdutos extends React.Component{
             <Fragment>
                 <Main>
                     <FiltroBox>
-                        <FiltroTeste>
-                            <h3>Filtros</h3>
-                            <ul>
-                                <li>Opção</li>
-                                <li>Opção</li>
-                                <li>Opção</li>
-                                <li>Opção</li>
-                                <li>Opção</li>
-                                <li>Opção</li>
-                                <li>Opção</li>
-                                <li>Opção</li>
-                            </ul>
-                            <br/>
-                            <ul>
-                                <li>Opção</li>
-                                <li>Opção</li>
-                                <li>Opção</li>
-                                <li>Opção</li>
-                                <li>Opção</li>
-                                <li>Opção</li>
-                                <li>Opção</li>
-                                <li>Opção</li>
-                            </ul>
-                        </FiltroTeste>
+                        <Filter />
                     </FiltroBox>
                     <ProdBox>
                         <CardProduto>CardProduto</CardProduto>
