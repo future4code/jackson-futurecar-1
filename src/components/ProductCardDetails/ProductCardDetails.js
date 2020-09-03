@@ -1,6 +1,5 @@
-import React, { Component, useState } from 'react'
-import Button from '@material-ui/core/Button';
-import {StyleDetails, useStyles} from './DetailsStyled'
+import React, { Component} from 'react'
+import StyleDetails from './DetailsStyled'
  
 class CardDetails extends React.Component {
   state = {
@@ -13,7 +12,7 @@ class CardDetails extends React.Component {
   }
     return (
       <>
-        <Button color="secondary" onClick={handleToggle}>+ Detalhes</Button>
+        <button onClick={handleToggle}>+ Detalhes</button>
         <StyleDetails visibility={this.state.toggle}>{this.props.details}</StyleDetails>
       </>
     )
