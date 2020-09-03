@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
-import axios from 'axios'
+// import axios from 'axios'
 
 const Main = styled.main`
     /*background-color: rgb(230,230,230);*/
