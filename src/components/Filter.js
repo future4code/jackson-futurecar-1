@@ -36,18 +36,6 @@ const FilterContainer = styled.div`
     padding: 20px;
 `;
 
-const mock = [
-    'Opção',
-    'Opção',
-    'Opção',
-    'Opção',
-    'Opção',
-    'Opção',
-    'Opção',
-    'Opção',
-    'Opção',
-    'Opção',
-  ];
   
   
 export default class Filter extends React.Component {
@@ -77,8 +65,8 @@ export default class Filter extends React.Component {
                         <FormControl component="fieldset">                    
                                 <FormLabel component="legend">Prazo de entrega</FormLabel>
                                     <RadioGroup aria-label="filter">
-                                        <FormControlLabel value="Menor Prazo" control={<Radio />} label="Menor Preço" />
-                                        <FormControlLabel value="Maior Prazo" control={<Radio />} label="Maior Preço" />                  
+                                        <FormControlLabel value="Menor Prazo" control={<Radio />} label="Menor Prazo" />
+                                        <FormControlLabel value="Maior Prazo" control={<Radio />} label="Maior Prazo" />                  
                                     </RadioGroup>
                         </FormControl>
                 <br />
