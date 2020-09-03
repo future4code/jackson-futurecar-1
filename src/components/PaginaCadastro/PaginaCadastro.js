@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { createMuiTheme } from '@material-ui/core/styles'
 import { ThemeProvider } from '@material-ui/core/styles'
 import Container from '@material-ui/core/Container';
-import Logo1 from '../components/img-cadastro/logo1.png'    
+import Logo1 from './img-cadastro/logo1.png' 
 import Grid from '@material-ui/core/Grid'
 import FormControl from '@material-ui/core/FormControl'
 import TextField from '@material-ui/core/TextField';
@@ -80,6 +80,7 @@ export class PaginaCadastro extends React.Component {
     render() {
         return (
             <ThemeProvider theme={theme}>
+                <Button onClick={this.props.voltar} variant="contained" color="primary">Voltar</Button>
                 <Container maxWidth="lg">
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
