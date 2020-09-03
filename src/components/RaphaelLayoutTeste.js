@@ -2,12 +2,14 @@ import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
 import { PaginaProdutos } from './PaginaProdutos'
+import { HeaderFuture } from './HeaderFuture'
+import PaginaCadastro from './PaginaCadastro'
 
 
 const Box = styled.div`
     min-width: 300px;
 `
-
+/*
 const Header = styled.header`
     min-height: 90px;
     border: 1px solid black;
@@ -18,6 +20,7 @@ const Header = styled.header`
     place-items: center;
     color: whitesmoke;
 `
+*/
 
 const Footer = styled.footer`
     min-height: 60px;
@@ -33,10 +36,28 @@ const Footer = styled.footer`
 
 
 export class RaphaelLayoutTeste extends React.Component{
+
+    queroComprar=()=>{
+        window.alert('(click) Quero Comprar')
+    }
+
+    queroVender=()=>{
+        window.alert('(click) Quero Vender')
+    }
+
+    clickLogo=()=>{
+        window.alert('(click)  Logo / *direciona para a home')
+    }
+
     render(){
         return(
             <Box>
-                <Header>HEADER</Header>
+                <HeaderFuture
+                    queroComprar={this.queroComprar}
+                    queroVender={this.queroVender}
+                    clickLogo={this.clickLogo}
+                />
+                <PaginaCadastro></PaginaCadastro>
                 <PaginaProdutos></PaginaProdutos>
                 <Footer>FOOTER</Footer>
             </Box>
