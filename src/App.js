@@ -7,7 +7,6 @@ import { Divider } from '@material-ui/core'
 function App() {
 	return (
 		<div>
-
 		    <AppContainer/>
 		    <Footer/>
 		</div>
