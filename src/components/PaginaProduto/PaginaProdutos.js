@@ -85,9 +85,20 @@ const Topo = styled.div`
 
 export class PaginaProdutos extends React.Component{
     state= {
-        cars: []
+        cars: [],
+        ordenaitens: 'name'
     }
-   
+    
+    ordena = (event) => {
+        if(event.target.value === 'name'){
+            this.setState({ordenaitens: 'name'})
+        }else if(event.target.value === 'price'){
+            this.setState({ordenaitens: 'price'})
+        }else if(event.target.value === 'shipping'){
+            this.setState({ordenaitens: 'shipping'})
+        }
+    }
+
     
     fetchCarList = () => {
         axios.get("https://us-central1-labenu-apis.cloudfunctions.net/futureCarOne/cars")
