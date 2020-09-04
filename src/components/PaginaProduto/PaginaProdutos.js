@@ -57,8 +57,7 @@ const CardProduto = styled.div`
     place-items: center;
     font-weight: bold;
     font-size: 24px;
-`
-<<<<<<< HEAD
+    `
 const Topo = styled.div`
   display: grid;
   justify-items: center;
@@ -84,8 +83,6 @@ const Topo = styled.div`
  
 
 
-=======
->>>>>>> master
 export class PaginaProdutos extends React.Component{
     state= {
         cars: []
@@ -119,7 +116,6 @@ export class PaginaProdutos extends React.Component{
             <Fragment>
                 
                 <Button onClick={this.props.voltar} variant="contained" color="primary">Voltar</Button>
-<<<<<<< HEAD
                 
                 <Topo>
                 <h3>Ordenar por:</h3>
@@ -131,9 +127,6 @@ export class PaginaProdutos extends React.Component{
                 </Topo>
                 <Main>
                     
-=======
-                <Main>                
->>>>>>> master
                     <FiltroBox>
                         <Filter />
                     </FiltroBox>
