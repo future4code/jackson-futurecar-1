@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-//import MediaCard from '../components/card/card'
-//import ProductCard from './ProductCard/ProductCard'
+import MedizductCard from './ProductCard/ProductCard'
 import { PaginaProdutos } from './PaginaProduto/PaginaProdutos'
-//import { RaphaelLayoutTeste } from './RaphaelLayoutTeste'
+import { RaphaelLayoutTeste } from './RaphaelLayoutTeste'
 import PaginaCadastro from './PaginaCadastro/PaginaCadastro'
-//import { Filter } from './Filter/Filter'
+import { Filter } from './Filter/Filter'
 import InitialPage from './InitialPage/InitialPage'
 
 
