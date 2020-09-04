@@ -43,8 +43,8 @@ const ProdBox = styled.div`
     column-gap: 35px;
     row-gap: 45px;
     grid-template-columns: 1fr;
-    @media screen and (min-width:900px){grid-template-columns: 1fr 1fr;};
-    @media screen and (min-width:1400px){grid-template-columns: 1fr 1fr 1fr;};
+    @media screen and (min-width:600px){grid-template-columns: 1fr 1fr;};
+    @media screen and (min-width:1100px){grid-template-columns: 1fr 1fr 1fr;};
 `
 
 const CardProduto = styled.div`
@@ -125,6 +125,7 @@ export class PaginaProdutos extends React.Component{
 
         return(
             <Fragment>
+               
                 
                 <Button onClick={this.props.voltar} variant="contained" color="primary">Voltar</Button>
                 
