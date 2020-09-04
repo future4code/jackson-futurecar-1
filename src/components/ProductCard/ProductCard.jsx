@@ -7,7 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
-export default function MediaCard() {
+export default  function MediaCard(props) {
   const classes = useStyles();
 
   return (
@@ -15,15 +15,15 @@ export default function MediaCard() {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={Car}
+          image={props.dados.url}
           title="Car name"
         />
         <CardContent className={classes.description} >
           <Typography gutterBottom variant="h5" component="h2" >
-            Hb20 
+            {props.dados.name} 
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            R$ 32.000,00
+            {props.dados.price}
           </Typography>
         </CardContent>
       </CardActionArea>
