@@ -6,6 +6,8 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+//import CardDetails from '../ProductCardDetails/ProductCardDetails'
+import CardDetails from './components/ProductCardDetails/ProductCardDetails'
 
 export default function MediaCard() {
   const classes = useStyles();
@@ -26,6 +28,7 @@ export default function MediaCard() {
             R$ 32.000,00
           </Typography>
         </CardContent>
+        <CardDetails details="olá, sou o detalhe do seu produto"/>
       </CardActionArea>
     </Card>
   );
