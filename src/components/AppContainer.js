@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import MediaCard from '../components/card/card'
+//import MediaCard from '../components/card/card'
 import ProductCard from './ProductCard/ProductCard'
 import { PaginaProdutos } from './PaginaProduto/PaginaProdutos'
 import { RaphaelLayoutTeste } from './RaphaelLayoutTeste'

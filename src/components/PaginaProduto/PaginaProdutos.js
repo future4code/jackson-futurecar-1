@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import axios from 'axios'
 import Filter from '../Filter/Filter'
 import Button from '@material-ui/core/Button';
+import ProductCard from '../ProductCard/ProductCard'
 
 const Main = styled.main`
     /*background-color: rgb(230,230,230);*/
@@ -57,24 +58,53 @@ const CardProduto = styled.div`
     font-weight: bold;
     font-size: 24px;
 `
-
-
+const ImageContainer = styled.div`
+    width: 20px;
+    max-height: 20px;
+`
+const TextContainer = styled.div`
+    width: 20px;
+    max-height: 20px;
+`
 export class PaginaProdutos extends React.Component{
+    state= {
+        cars: []
+    }
+   
+    
+    fetchCarList = () => {
+        axios.get("https://us-central1-labenu-apis.cloudfunctions.net/futureCarOne/cars")
+        .then(response => {
+                console.log(response)
+                this.setState({ cars:response.data.cars})
+        })
+        .catch(error => {
+            console.log(error)
+        })
+        
+    }
+
+    componentDidMount = () => {
+        this.fetchCarList()
+    }
+
+
     render(){
+            const renderProducts = this.state.cars.map((item) => {
+                return (                                
+                    <ProductCard dados={item}/> 
+            )})
+
         return(
             <Fragment>
                 <Button onClick={this.props.voltar} variant="contained" color="primary">Voltar</Button>
                 <Main>
-                    
+                
                     <FiltroBox>
                         <Filter />
                     </FiltroBox>
                     <ProdBox>
-                        <CardProduto>CardProduto</CardProduto>
-                        <CardProduto>CardProduto</CardProduto>
-                        <CardProduto>CardProduto</CardProduto>
-                        <CardProduto>CardProduto</CardProduto>
-                        <CardProduto>CardProduto</CardProduto>
+                        {renderProducts}
                     </ProdBox>
                 </Main>
             </Fragment>
