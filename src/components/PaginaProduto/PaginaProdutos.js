@@ -62,6 +62,7 @@ const CardProduto = styled.div`
 export class PaginaProdutos extends React.Component{
     state= {
         //vai chamar o array de produtos e setar o valor escolhido
+        
        ordenacao: 'name'
     }
       
