@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import axios from 'axios'
 import Filter from '../Filter/Filter'
 import Button from '@material-ui/core/Button';
+import ProductCard from '../ProductCard/ProductCard'
 
 const Main = styled.main`
     /*background-color: rgb(230,230,230);*/
@@ -57,49 +58,44 @@ const CardProduto = styled.div`
     font-weight: bold;
     font-size: 24px;
 `
-
-
 export class PaginaProdutos extends React.Component{
     state= {
-        //vai chamar o array de produtos e setar o valor escolhido
+        cars: []
+    }
+   
+    
+    fetchCarList = () => {
+        axios.get("https://us-central1-labenu-apis.cloudfunctions.net/futureCarOne/cars")
+        .then(response => {
+                console.log(response)
+                this.setState({ cars:response.data.cars})
+        })
+        .catch(error => {
+            console.log(error)
+        })
         
-       ordenacao: 'name'
     }
-      
 
-    ordena = (event) => {
-        if(event.target.value === 'name'){
-            this.setState({ordenacao: 'name'})
-        }else
-        if(event.target.value === 'price'){
-            this.setState({ordenacao: 'price'})
-        }else
-        if(event.target.value === 'shipping'){
-            this.setState({ordenacao: 'shipping'})
-        }
-
-
+    componentDidMount = () => {
+        this.fetchCarList()
     }
+
+
     render(){
+            const renderProducts = this.state.cars.map((item) => {
+                return (                                
+                    <ProductCard dados={item}/> 
+            )})
+
         return(
             <Fragment>
                 <Button onClick={this.props.voltar} variant="contained" color="primary">Voltar</Button>
-                <select onClick={this.ordena}>
-                    <option value="name">Título</option>
-                    <option value="price">Valor de Venda</option>
-                    <option value="shipping">Prazo de Entrega</option>
-                </select>
-                <Main>
-                    
+                <Main>                
                     <FiltroBox>
                         <Filter />
                     </FiltroBox>
                     <ProdBox>
-                        <CardProduto>CardProduto</CardProduto>
-                        <CardProduto>CardProduto</CardProduto>
-                        <CardProduto>CardProduto</CardProduto>
-                        <CardProduto>CardProduto</CardProduto>
-                        <CardProduto>CardProduto</CardProduto>
+                        {renderProducts}
                     </ProdBox>
                 </Main>
             </Fragment>
