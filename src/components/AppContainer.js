@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
-import MediaCard from '../components/card/card'
 import ProductCard from './ProductCard/ProductCard'
 import { PaginaProdutos } from './PaginaProduto/PaginaProdutos'
 import { RaphaelLayoutTeste } from './RaphaelLayoutTeste'
-import PaginaCadastro from '../components/PaginaCadastro'
-import InitialPage from './InitialPage/InitialPage'
-import PaginaCadastro from './PaginaCadastro/PaginaCadastro'
+import PaginaCadastro from '../components/PaginaCadastro/PaginaCadastro'
 import { Filter } from './Filter/Filter'
 import InitialPage from './InitialPage/InitialPage'
 
@@ -46,7 +43,7 @@ export class AppContainer extends Component {
         <RaphaelLayoutTeste></RaphaelLayoutTeste>
         <PaginaCadastro />
       </div>
-      this.mudarTela()
+   // const newLocal = this.mudarTela()
     )
   }
 }
