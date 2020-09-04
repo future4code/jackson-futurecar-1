@@ -58,6 +58,34 @@ const CardProduto = styled.div`
     font-weight: bold;
     font-size: 24px;
 `
+<<<<<<< HEAD
+const Topo = styled.div`
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 50px repeat(2, 2fr);
+  grid-row-gap:5px;
+  grid-column-gap:5px;
+  select {
+    grid-column: 4/4;
+    grid-row: 1/2;
+    height: 20px;
+    justify-self: self-end;
+    align-self: center;
+  }
+  h3 {
+    grid-column: 4/4;
+    grid-row: 1/2;
+    justify-self: self-start;
+    align-self: center;
+
+  }
+`
+ 
+
+
+=======
+>>>>>>> master
 export class PaginaProdutos extends React.Component{
     state= {
         cars: []
@@ -89,8 +117,23 @@ export class PaginaProdutos extends React.Component{
 
         return(
             <Fragment>
+                
                 <Button onClick={this.props.voltar} variant="contained" color="primary">Voltar</Button>
+<<<<<<< HEAD
+                
+                <Topo>
+                <h3>Ordenar por:</h3>
+                <select onClick={this.ordena}>
+                    <option value="name">Título</option>
+                    <option value="price">Valor de Venda</option>
+                    <option value="shipping">Prazo de Entrega</option>
+                </select>
+                </Topo>
+                <Main>
+                    
+=======
                 <Main>                
+>>>>>>> master
                     <FiltroBox>
                         <Filter />
                     </FiltroBox>
