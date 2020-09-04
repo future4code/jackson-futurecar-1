@@ -37,13 +37,7 @@ export class AppContainer extends Component {
 
   render() {
     return (
-      <div>
-        <InitialPage/>
-        <ProductCard/>
-        <RaphaelLayoutTeste></RaphaelLayoutTeste>
-        <PaginaCadastro />
-      </div>
-   // const newLocal = this.mudarTela()
+      this.mudarTela()
     )
   }
 }
