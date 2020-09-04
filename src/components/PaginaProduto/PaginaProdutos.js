@@ -60,10 +60,34 @@ const CardProduto = styled.div`
 
 
 export class PaginaProdutos extends React.Component{
+    state= {
+        //vai chamar o array de produtos e setar o valor escolhido
+       ordenacao: 'name'
+    }
+      
+
+    ordena = (event) => {
+        if(event.target.value === 'name'){
+            this.setState({ordenacao: 'name'})
+        }else
+        if(event.target.value === 'price'){
+            this.setState({ordenacao: 'price'})
+        }else
+        if(event.target.value === 'shipping'){
+            this.setState({ordenacao: 'shipping'})
+        }
+
+
+    }
     render(){
         return(
             <Fragment>
                 <Button onClick={this.props.voltar} variant="contained" color="primary">Voltar</Button>
+                <select onClick={this.ordena}>
+                    <option value="name">Título</option>
+                    <option value="price">Valor de Venda</option>
+                    <option value="shipping">Prazo de Entrega</option>
+                </select>
                 <Main>
                     
                     <FiltroBox>

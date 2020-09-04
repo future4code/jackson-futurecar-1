@@ -43,7 +43,7 @@ export class AppContainer extends Component {
         <RaphaelLayoutTeste></RaphaelLayoutTeste>
         <PaginaCadastro />
       </div>
-   // const newLocal = this.mudarTela()
+   //  this.mudarTela()
     )
   }
 }
