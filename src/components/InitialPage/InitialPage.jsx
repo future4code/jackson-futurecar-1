@@ -69,8 +69,8 @@ align-items: center;
 justify-self: center;
 `
 const Logo1 = styled.img`
-  width:100%
-  padding: 30%
+  width:100%;
+  /* padding: 30%; */
   align-items: center;
   justify-self: center;
 `

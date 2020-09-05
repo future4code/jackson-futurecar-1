@@ -6,7 +6,7 @@ export const useStyles = makeStyles({
         height: '12vh',
         backgroundColor:'#f35a5a',
         color: '#fff',
-        marginTop: '5vh'
+        marginTop: '5vh',
     },
     container: {
         height: '100%',

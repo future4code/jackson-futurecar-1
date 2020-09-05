@@ -31,9 +31,9 @@ const theme = createMuiTheme({
 const FilterContainer = styled.div`
     display: flex;
     flex-direction: column;
-    width: 300px;
-    border: solid 5px black;
-    padding: 20px;
+    width: 250px;
+    border: solid 1px black;
+    padding: 15px;
 `;
 
   
