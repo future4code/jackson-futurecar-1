@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import MedizductCard from './ProductCard/ProductCard'
+// import MedizductCard from './ProductCard/ProductCard'
 import { PaginaProdutos } from './PaginaProduto/PaginaProdutos'
-import { RaphaelLayoutTeste } from './RaphaelLayoutTeste'
+// import { RaphaelLayoutTeste } from './RaphaelLayoutTeste'
 import PaginaCadastro from './PaginaCadastro/PaginaCadastro'
-import { Filter } from './Filter/Filter'
+// import { Filter } from './Filter/Filter'
 import InitialPage from './InitialPage/InitialPage'
+
 
 
 export class AppContainer extends Component {
@@ -27,11 +28,23 @@ export class AppContainer extends Component {
   mudarTela = () => {
     switch(this.state.page){
       case "initialPage": 
-        return <InitialPage pageCreateCar={() => this.ClickComprador()}  pageProduct={() => this.ClickVendedor()}/>
+        return <InitialPage 
+                pageCreateCar={() => this.ClickVendedor()}
+                pageProduct={() => this.ClickComprador()}
+                
+                />
       case "pageProduct": 
-        return <PaginaProdutos voltar={() => this.ClickInitial() } />
+        return <PaginaProdutos 
+                pageCreateCar={() => this.ClickVendedor()} 
+                pageProduct={() => this.ClickComprador()} 
+                pageInitial={() => this.ClickInitial()}
+                />
       case "pageCreateCar":
-        return <PaginaCadastro voltar={() => this.ClickInitial() } />
+        return <PaginaCadastro 
+                pageCreateCar={() => this.ClickVendedor()}
+                pageProduct={() => this.ClickComprador()} 
+                pageInitial={() => this.ClickInitial()}
+                />
     }
   }
 

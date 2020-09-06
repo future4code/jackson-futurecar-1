@@ -4,6 +4,7 @@ import axios from 'axios'
 import Filter from '../Filter/Filter'
 import Button from '@material-ui/core/Button';
 import ProductCard from '../ProductCard/ProductCard'
+import {HeaderFuture} from '../Header/HeaderFuture'
 
 const Main = styled.main`
     /*background-color: rgb(230,230,230);*/
@@ -126,8 +127,11 @@ export class PaginaProdutos extends React.Component{
         return(
             <Fragment>
                
-                
-                <Button onClick={this.props.voltar} variant="contained" color="primary">Voltar</Button>
+                <HeaderFuture 
+                    pageCreateCar={this.props.pageCreateCar}
+                    pageProduct={this.props.pageProduct} 
+                    pageInitial={this.props.pageInitial}
+                    />
                 
                 <Topo>
                 <h3>Ordenar por:</h3>

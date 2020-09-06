@@ -4,7 +4,7 @@ import Logo1 from '../PaginaCadastro/img-cadastro/logo1.png'
 
 
 const Header = styled.header`
-    background-color: whitesmoke;
+    background-color: whitesmoke;   
     box-shadow: 0 2px 2px rgb(210,210,210);
     min-height: 100px;
     border-bottom: 6px solid #ff5c5c;
@@ -68,7 +68,7 @@ const NavBtn = styled.div`
 
     background-color: rgb(40,40,40);
     :hover{
-        background-color: #3c3289;
+        background-color: #d3d3d3;
         box-shadow: 0 3px 2px rgb(170,170,170);
     }
 
@@ -77,7 +77,7 @@ const NavBtn = styled.div`
     :first-child{
         background-color: #ff5c5c;
         :hover{
-            background-color: #f52c2c;
+            background-color: #e98b97;
         }
     }
 `
@@ -88,12 +88,12 @@ export class HeaderFuture extends React.Component{
     render(){
         return(
             <Header>
-                <Logo onClick={this.props.clickLogo} >
+                <Logo onClick={this.props.pageInitial} >
                     <LogoImg src={Logo1}/>
                 </Logo>
                 <Nav>
-                    <NavBtn onClick={this.props.queroComprar} >Quero Comprar</NavBtn>
-                    <NavBtn onClick={this.props.queroVender} >&nbsp;Quero Vender&nbsp;</NavBtn>
+                    <NavBtn onClick={this.props.pageProduct} >Quero Comprar</NavBtn>
+                    <NavBtn onClick={this.props.pageCreateCar} >&nbsp;Quero Vender&nbsp;</NavBtn>
                 </Nav>
             </Header>
         )
