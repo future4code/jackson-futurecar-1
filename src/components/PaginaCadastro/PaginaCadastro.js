@@ -10,6 +10,7 @@ import FormControl from '@material-ui/core/FormControl'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import {HeaderFuture} from '../Header/HeaderFuture'
 
 const theme = createMuiTheme({
     palette: {
@@ -85,8 +86,13 @@ export class PaginaCadastro extends React.Component {
 
     render() {
         return (
+            
             <ThemeProvider theme={theme}>
-                <Button onClick={this.props.voltar} variant="contained" color="primary">Voltar</Button>
+                <HeaderFuture 
+                    pageCreateCar={this.props.pageCreateCar}  
+                    pageProduct={this.props.pageProduct}
+                    pageInitial={this.props.pageInitial}
+                    />
                 <Container maxWidth="lg">
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
