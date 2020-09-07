@@ -2,7 +2,6 @@ import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
 import Filter from '../Filter/Filter'
-import Button from '@material-ui/core/Button';
 import ProductCard from '../ProductCard/ProductCard'
 import {HeaderFuture} from '../Header/HeaderFuture'
 
