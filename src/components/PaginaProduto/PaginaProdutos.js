@@ -87,7 +87,11 @@ const Topo = styled.div`
 export class PaginaProdutos extends React.Component{
     state= {
         cars: [],
-        ordenaitens: 'name'
+        ordenaitens: 'name',
+        valorMaximo: '',
+        valorMinimo: '',
+        valorBusca: ''
+       
     }
     
     ordena = (event) => {
@@ -97,15 +101,35 @@ export class PaginaProdutos extends React.Component{
             this.setState({ordenaitens: 'price'})
         }else if(event.target.value === 'shipping'){
             this.setState({ordenaitens: 'shipping'})
+        }  
+    }
+
+    onchangeMaximo = (event) => {
+        this.setState({valorMaximo: Number(event.target.value)})
+    } 
+
+    onchangeMinimo = (event) => {
+        this.setState({valorMinimo: Number(event.target.value)})
+    } 
+    
+    onchangeBusca = (event) => {
+        this.setState({valorBusca: event.target.value.toUpperCase()})
+    }
+    
+    limparFiltros = () => {
+        this.setState({
+            valorMaximo: '',
+            valorMinimo: '',
+            valorBusca: ''
         }
+        )
     }
 
     
     fetchCarList = () => {
         axios.get("https://us-central1-labenu-apis.cloudfunctions.net/futureCarOne/cars")
         .then(response => {
-                console.log(response)
-                this.setState({ cars:response.data.cars})
+            this.setState({ cars: response.data.cars})
         })
         .catch(error => {
             console.log(error)
@@ -119,10 +143,52 @@ export class PaginaProdutos extends React.Component{
 
 
     render(){
-            const renderProducts = this.state.cars.map((item) => {
-                return (                                
-                    <ProductCard dados={item}/> 
-            )})
+        let lista
+
+       //filtro de preco e nome   
+         if ((this.state.valorMaximo ==='' || this.state.valorMaximo === 0) && 
+            (this.state.valorMinimo ===''|| this.state.valorMinimo === 0) && this.state.valorBusca ===''){
+             lista = this.state.cars
+            
+             
+         }else{
+             lista = this.state.cars.filter((carro)=>{
+                 return (carro.price<=this.state.valorMaximo && carro.price>=this.state.valorMinimo) || (carro.name.toUpperCase() === this.state.valorBusca)
+             })
+         }
+         console.log(lista)
+         //Ordena os produtos
+        switch (this.state.ordenaitens){
+            case 'name':
+                lista.sort(function(item1,item2){
+                    const NomeA = item1.name.toUpperCase();
+                    const NomeB = item2.name.toUpperCase();
+                    if (NomeA === NomeB){
+                        return 0;
+                    }else if (NomeA < NomeB){
+                        return -1;
+                    } else {
+                        return 1
+                    }
+                });
+                break;
+                
+            case 'price' :
+                lista.sort((item1,item2)=>{
+                    return item1.price - item2.price})
+                break
+            case 'shipping' :
+                lista.sort((item1,item2)=>{
+                    return item1.shipping - item2.shipping})
+                break    
+        }
+                   
+
+        const renderProducts = lista.map((item) => {
+            return (                                
+                <ProductCard dados={item}/> 
+        )})
+        console.log(this.state.ordenaitens)
 
         return(
             <Fragment>
@@ -144,7 +210,12 @@ export class PaginaProdutos extends React.Component{
                 <Main>
                     
                     <FiltroBox>
-                        <Filter />
+                        <Filter 
+                            valorMaximo={this.state.valorMaximo} Maximo={this.onchangeMaximo}
+                            valorMinimo={this.state.valorMinimo} Minimo={this.onchangeMinimo}
+                            valorBusca={this.state.valorBusca} Busca={this.onchangeBusca}
+                            LimparCampos={this.limparFiltros}
+                        />
                     </FiltroBox>
                     <ProdBox>
                         {renderProducts}
