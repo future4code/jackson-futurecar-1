@@ -31,11 +31,12 @@ const theme = createMuiTheme({
 const FilterContainer = styled.div`
     display: flex;
     flex-direction: column;
-    width: 250px;
-    border: solid 1px black;
-    padding: 15px;
-`;
+    width: 170px;
+   // border: solid 1px black;
+    padding: 8px;
+    font-size:14px;
 
+`
   
   
 export default class Filter extends React.Component {
@@ -49,50 +50,38 @@ export default class Filter extends React.Component {
             
         <MuiThemeProvider theme={theme}>
             <FilterContainer>
-            <Button variant="contained" color="secondary"><strong>Limpar Filtros</strong></Button>
-            <br />
-                <div>
-                    <h2>Ordenar:</h2>
-                        <FormControl component="fieldset">                    
-                                <FormLabel component="legend">Preço</FormLabel>
-                                    <RadioGroup aria-label="filter">
-                                        <FormControlLabel value="Menor Preço" control={<Radio />} label="Menor Preço" />
-                                        <FormControlLabel value="Maior Preço" control={<Radio />} label="Maior Preço" />                  
-                                    </RadioGroup>
-
-                        </FormControl>
-                <br />
-                        <FormControl component="fieldset">                    
-                                <FormLabel component="legend">Prazo de entrega</FormLabel>
-                                    <RadioGroup aria-label="filter">
-                                        <FormControlLabel value="Menor Prazo" control={<Radio />} label="Menor Prazo" />
-                                        <FormControlLabel value="Maior Prazo" control={<Radio />} label="Maior Prazo" />                  
-                                    </RadioGroup>
-                        </FormControl>
-                <br />
-                        <FormControl component="fieldset">                
-                            <FormControl>
-                                <TextField id="Modelo do carro" label="Modelo do carro" />
-                            </FormControl>
-                        </FormControl>
-                <br />
-                </div>
-                <br />
-                
+                <Button size="small" variant="contained" color="secondary" onClick={this.props.LimparCampos}><strong>Limpar Filtros</strong></Button>
+            
                 <div>
                     <h2>Filtrar:</h2>
-                        <h5>Preço:</h5>                        
-                            <FormControl>
-                                <TextField id="De" label="De" /><TextField id="Até" label="Até" />
-                            </FormControl>
-                        <br />
-                        <h5>Descrição:</h5>
-                            <FormControl>
-                                <TextField id="Descrição" label="Descrição do carro" />
-                            </FormControl>                
-                </div>
-                <br />                            
-                <Button variant="contained" color="primary">Filtrar</Button>
+                    <h5>Preço:</h5>                        
+                    <FormControl>
+                        <TextField  
+                            id="De" 
+                            label="De" 
+                            value={this.props.valorMinimo}
+                            onChange={this.props.Minimo}
+                        />
+                        <TextField 
+                            id="Até" 
+                            label="Até"
+                            value={this.props.valorMaximo}
+                            onChange={this.props.Maximo}
+                        />
+                    </FormControl>
+
+                    <h5>Descrição:</h5>
+                    <FormControl>
+                        <TextField 
+                            id="Descrição" 
+                            label="Descrição do carro" 
+                            value={this.props.valorBuscar}
+                            onChange={this.props.Busca}
+                        />
+                    </FormControl>                
+                </div>  
+                <br/>                        
+                
             </FilterContainer>
             
         </MuiThemeProvider>
